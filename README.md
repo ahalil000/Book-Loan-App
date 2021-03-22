@@ -1,6 +1,8 @@
 # Book-Loan-App
 BookLoan App - The Library In The Sky!
 
+![alt text](https://github.com/ahalil000/Book-Loan-App/blob/master/BookLoan%20App/Angular%20SPA/angular-api-azure-app/src/assets/library-icon.png?raw=true)
+
 The BookLoan App is a web application devised for the Fictitious BookLoan Library for online and cloud. 
 
 I developed this application so that I could incorporate a number of open-source skills that I already have and have acquired over the past 5 years. 
