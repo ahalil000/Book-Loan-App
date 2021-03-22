@@ -1,0 +1,153 @@
+<!-- <div id="heading" class="heading">Book Details 3</div> -->
+<mat-card>
+
+  <mat-card-title>
+  </mat-card-title>
+
+  <mat-card-content>
+    <div id="heading" class="heading">New User Account Details</div>
+  </mat-card-content>
+
+  <mat-card-content>
+    <button type="button" class="btn btn-primary" id="btnBack" (click)="eventBack($event.value)">Back to List</button>
+  </mat-card-content>
+
+  <mat-card-content>
+    <form #userForm="ngForm">
+        <div class="form-group">
+          <label for="firstname">First Name:</label>
+          <input [(ngModel)]="useraccount.firstname" name="firstname" 
+            class="form-control col-sm-6" required placeholder="Firstname"
+            minlength="2" maxlength="50" #firstname="ngModel"
+            placement="right" ngbTooltip="Enter first name">
+        </div>
+
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched || submitted)"
+              class="alert alert-danger">
+          <div *ngIf="firstname.errors.required">
+            First Name is required.
+          </div>
+          <div *ngIf="firstname.errors.minlength">
+            First Name length must be at least 2 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Last Name:</label>
+          <input [(ngModel)]="useraccount.lastname" name="lastname" 
+            class="form-control col-sm-6" required placeholder="Lastname"
+            minlength="2" maxlength="50" #lastname="ngModel"             
+            placement="right" ngbTooltip="Enter last name">
+        </div>
+
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched || submitted)"
+              class="alert alert-danger">
+          <div *ngIf="lastname.errors.required">
+            Last Name is required.
+          </div>
+          <div *ngIf="lastname.errors.minlength">
+            Last Name length must be at least 2 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <br />
+          <input matInput [matDatepicker]="picker" name="dob" appDateOfBirth={{useraccount.dob}}
+            [(ngModel)]="useraccount.dob"
+            (dateInput)="addEvent('input', $event)" 
+            (dateChange)="addEvent('change', $event)" #dob="ngModel">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startAt="{{useraccount.dob}}"></mat-datepicker>
+        </div>
+
+        <div *ngIf="dob.invalid" class="alert alert-danger">
+          <div *ngIf="dob.errors.forbiddenDateOfBirth">
+            Date of Birth is invalid.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Login Name:</label>
+          <input [(ngModel)]="useraccount.username" name="username" 
+            class="form-control col-sm-6" required placeholder="Username" 
+            minlength="2" maxlength="50" #username="ngModel"
+            placement="right" ngbTooltip="Enter login (must be alphanumeric)">
+        </div>
+
+        <div *ngIf="username.invalid && (username.dirty || username.touched || submitted)"
+              class="alert alert-danger">
+          <div *ngIf="username.errors.required">
+            Login Name is required.
+          </div>
+          <div *ngIf="username.errors.minlength">
+            Login Name length must be at least 2 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Email:</label>
+          <input [(ngModel)]="useraccount.email" name="email" 
+            class="form-control col-sm-6" required placeholder="Email"
+            minlength="2" maxlength="50" #email="ngModel"
+            placement="right" ngbTooltip="Enter email address">
+        </div>
+
+        <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)"
+              class="alert alert-danger">
+          <div *ngIf="email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="email.errors.minlength">
+            Email length must be at least 2 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Password:</label>
+          <input [(ngModel)]="useraccount.password" name="password" 
+            class="form-control col-sm-4" required placeholder="Password" 
+            minlength="6" maxlength="50" #password="ngModel"
+            placement="right" ngbTooltip="Enter password (alphanumeric and at least one special character)">
+        </div>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched || submitted)"
+              class="alert alert-danger">
+          <div *ngIf="password.errors.required">
+            Password is required.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            Password length must be at least 6 characters.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="selectGenre1">Access Role:</label>
+          <br />
+          <div ngbDropdown class="d-inline-block form-control col-sm-3" 
+                placement="right">
+              <button
+                style="margin-left: -10px; margin-top: -5px;" 
+                class="btn btn-outline-primary"  id="selectRole1" ngbDropdownToggle>
+                {{selectedRole}}
+              </button>
+              <div name="selectRole2" ngbDropdownMenu aria-labelledby="selectRole1" 
+                ngDefaultControl [(ngModel)]="selectedRole">
+                <button ngbDropdownItem *ngFor="let role of roles" 
+                  [value]="role" (click)="eventSelection($event)">
+                  {{role}}
+                </button>
+              </div>
+            </div>
+        </div>
+
+        <!-- <div *ngIf="!userForm.valid" class="alert alert-danger">
+          Submission not permitted until errors rectified!
+        </div> -->
+        <!-- <div *ngIf="userForm.valid"> -->
+            <button type="button" class="btn btn-primary" id="btnCreate" (click)="eventCreateRecord($event.value)">Create</button>
+        <!-- </div>         -->
+    </form>
+
+</mat-card-content>
+</mat-card>

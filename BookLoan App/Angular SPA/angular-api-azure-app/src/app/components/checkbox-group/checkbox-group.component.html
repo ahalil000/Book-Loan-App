@@ -1,0 +1,11 @@
+<div style="display: flex;">                    
+    <div name="selectionItems" style="flex: 0 20%;" *ngFor="let item of selectedItemsData">
+        <mat-checkbox [(ngModel)]="item.isSelected" 
+                      [color]="blue" 
+                      [ngModelOptions]="{standalone: true}"
+                      (ngModelChange)="updateChecked(item, $event)">
+                      {{item.description}}
+        </mat-checkbox>
+    </div>
+</div>
+

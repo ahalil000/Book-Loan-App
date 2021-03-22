@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjJCSJQ8AekSm9jdU83HAzAAAAAACAAAAAAAQZgAAAAEAACAAAABfpmNSiQbfv+XLGGxJQmJ2nFsEI+orPTkVxXDNFMhhVQAAAAAOgAAAAAIAACAAAAD2aTgDp5Jv+ZqNe/N86p/H5jF5zQN+02HxuaD00uftU4AAAABhelcewic5JyorYAoxOq2Fq0t/mTCFZDJwN7nW7+i1VItaRVeWtDbLQitDLjyK5PF8zy8/QV8GYEjJjU8nxtvPAhYEzYkubm6dAWAR+q4lji9lesILWdsxiCslTEqck/qsZsrcj3tzJtUQFdOqgerQPJWk2Vh8ui+pQRiFuqv7v0AAAABI7RFXJYC3HDYzytXqxb+gXs/W5pCXpInr2iYTsGhHL9w7oimdeHwzZQi4XxeTHEW9vnShhFpEr6SfE7dzm2nv</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="AppDbContext">
+      <Value>Server=tcp:courseserver101.database.windows.net,1433%3bInitial Catalog=BookLoanDb%3bPersist Security Info=False%3bUser ID=ahdbadmin%3bPassword=Ah123456%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,10 @@
+{
+  "ConnectionStrings": {
+    "AppDbContext": "Server=localhost;Database=aspnet-BookCatalog;User Id=admin;Password=admin;"
+  },
+  "AppSettings": {
+    "UrlTokenAPI": "http://localhost/BookLoan.Identity.API/",
+    "UrlCatalogAPI": "http://localhost/BookLoan.Catalog.API/",
+    "UrlLoanAPI": "http://localhost/BookLoan.Loan.API/"
+  }
+}

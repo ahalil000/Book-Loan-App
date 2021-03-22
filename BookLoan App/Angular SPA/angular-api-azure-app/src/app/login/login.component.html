@@ -1,0 +1,30 @@
+<div class="wrapper">
+
+    <div class="header-area"></div>
+
+    <div class="signin-area">    
+        <mat-card>
+            <form [formGroup]="form" (ngSubmit)="login(form.controls.email.value, form.controls.password.value)">
+                <div class="form-heading" id="heading"><b>{{heading}}</b></div>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput id="email" type="email" placeholder="Email" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput id="pwd" type="password" placeholder="Password" formControlName="password">
+                    </mat-form-field>
+                    <button mat-raised-button id="btnLogin" color="primary" [disabled]="!form.valid">Login</button>
+                </div>
+            </form>
+        </mat-card>
+    </div>
+
+    <div class="footer-area">
+        <a href="#">
+            <span>Version 1.0</span>
+        </a>
+        <br />
+        <span class="footer-text">2020 &copy; Andrew Halil</span>
+    </div>
+</div>

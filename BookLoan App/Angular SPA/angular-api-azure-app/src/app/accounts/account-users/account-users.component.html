@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-content>
+        <div id="heading" class="heading"><b>{{heading}}</b></div>
+    </mat-card-content>
+
+        <mat-card-content>
+            <div *ngIf="hasLoaded$ | async; else loading">
+                <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px; background-color: cadetblue;">
+                    <div style="flex: 0 40%;"><u><b>EMAIL</b></u></div>
+                    <div style="flex: 0 20%;"><u><b>&nbsp;</b></u></div>                        
+                </div>
+
+                <mat-list *ngFor="let user of users">
+                    <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px;">
+                        <div class="grid-row" style="flex: 0 40%;">{{user.email}}</div>
+                        <div class="grid-row" style="flex: 0 20%;" class="clickLink" (click)="selectUserById(user.id)"><u>VIEW</u></div>
+                    </div> 
+                </mat-list>
+            </div>
+            <br />
+            <ng-template #loading>
+                <div>
+                <br />
+                <mat-progress-spinner
+                    class="example-margin"
+                    [color]="primary"
+                    [mode]="mode"
+                    [value]="value">
+                </mat-progress-spinner>
+                loading users .. please wait
+                </div>
+            </ng-template>
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+</mat-card>
+
+<div class="example-button-row">
+    <button type="button" class="btn btn-primary" id="btnNew" (click)="eventNewRecord($event.value)">New User</button>
+</div>

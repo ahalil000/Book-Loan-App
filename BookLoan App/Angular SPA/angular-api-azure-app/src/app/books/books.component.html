@@ -1,0 +1,57 @@
+<mat-card>
+    <mat-card-content>
+        <div id="heading" class="heading"><b>{{heading}}</b></div>
+    </mat-card-content>
+
+    <mat-card-content>
+        <div *ngIf="hasLoaded$ | async; else loading">
+            <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px; background-color: cadetblue;">
+                <div style="flex: 0 40%;"><u><strong>TITLE</strong></u></div>
+                <div style="flex: 0 40%;"><u><strong>AUTHOR</strong></u></div>
+                <div style="flex: 0 20%;"><u><strong>&nbsp;</strong></u></div>                        
+            </div>
+
+            <mat-list *ngFor="let book of bookView">
+                <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px;">
+                    <div class="grid-row" style="flex: 0 40%;">{{book.title}}</div>
+                    <div class="grid-row" style="flex: 0 40%;">{{book.author}}</div>
+                    <div class="grid-row" style="flex: 0 20%;" class="clickLink" (click)="selectBookById(book.id)"><u>VIEW</u></div>
+                </div> 
+                <!-- <div style="display: flex; flex-wrap: wrap; height: 20px; border-style: solid; border-width: 1px;">
+                    <div style="flex: 0 50%; color: green; background-color:aquamarine;">
+                        <mat-list-item id="book_{{book.id}}" class="clickLink" (click)="selectBookById(book.id)">{{book.id}}</mat-list-item>
+                    </div>    
+                    <div style="flex: 0 50%; color: blueviolet; background-color:aquamarine;">
+                        <mat-list-item class="clickLink" (click)="selectBookById(book.id)">{{book.title}}</mat-list-item>
+                    </div>
+                </div> -->
+            </mat-list>
+
+            <app-pagination 
+                [itemsPerPage]="10" 
+                [totalItens]="numberBooks"
+                [dataSource]="books"
+                (pageChange)="eventPageChanged($event)"
+                (pagedOutputChange)="eventPagedOutputChanged($event)">
+            </app-pagination>
+        </div>
+        <br />
+        <ng-template #loading>
+            <div>
+            <br />
+            <mat-progress-spinner
+                class="example-margin"
+                [color]="primary"
+                [mode]="mode"
+                [value]="value">
+            </mat-progress-spinner>
+            loading books .. please wait
+            </div>
+        </ng-template>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="example-button-row">
+            <button type="button" class="btn btn-primary" id="btnNew" (click)="eventNewRecord($event.value)">New Book</button>
+        </div>        
+    </mat-card-actions>
+</mat-card>

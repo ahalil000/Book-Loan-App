@@ -1,0 +1,48 @@
+<nav>
+<button mat-button [matMenuTriggerFor]="homeMenu">Home</button>
+<mat-menu #homeMenu="matMenu">
+    <button mat-menu-item><a routerLink="/home" routerLinkActive="activebutton">Home</a></button>
+</mat-menu>    
+<button mat-button [matMenuTriggerFor]="aboutMenu">About</button>
+<mat-menu #aboutMenu="matMenu">
+  <button mat-menu-item><a routerLink="/about" routerLinkActive="activebutton">About</a></button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="dashMenu">Dashboard</button>
+<mat-menu #dashMenu="matMenu">
+    <button mat-menu-item><a routerLink="/dashboard" routerLinkActive="activebutton">Dashboard</a></button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="demoMenu">Demos</button>
+<mat-menu #demoMenu="matMenu">
+  <button mat-menu-item><a routerLink="/books" routerLinkActive="activebutton">Demo 1</a></button>
+  <button mat-menu-item><a routerLink="/book-search" routerLinkActive="activebutton">Demo 2</a></button>
+  <button mat-menu-item>Demo 2</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="loginMenu" id="btnAccount">Account</button>
+
+<mat-menu #loginMenu="matMenu">
+  <div *ngIf="authService.isUserAdmin && authService.isLoggedIn()">
+    <button mat-menu-item id="btnUserAdmin" (click)="adminusers()"><a>User Admin</a></button>
+  </div>
+
+  <div *ngIf="authService.isLoggedIn()">
+    <button mat-menu-item id="welcomeMsg">Welcome {{authService.currLoggedInUserValue}}</button>
+    <button mat-menu-item id="btnMenuLogout" (click)="logout()"><a>Logout</a></button>
+  </div>
+  <div *ngIf="!authService.isLoggedIn()">
+    <button mat-menu-item id="btnMenuLogin"><a routerLink="/login" routerLinkActive="activebutton">Login</a></button>
+  </div>
+</mat-menu>
+
+<button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+  <div *ngIf="notificationList && notificationList.items && notificationList.items.length > 0">
+    <mat-icon matBadge="{{notificationList.items.length}}" matBadgeColor="warn">notifications_active</mat-icon>
+  </div>
+</button>
+<mat-menu #notificationMenu="matMenu">
+  <button mat-menu-item *ngFor="let item of notificationList.items">
+    <mat-icon>list_alt</mat-icon>
+    <span>{{item.notificationDescription}}</span>
+  </button>
+</mat-menu>
+
+</nav>  

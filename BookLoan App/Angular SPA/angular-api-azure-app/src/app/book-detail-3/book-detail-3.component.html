@@ -1,0 +1,87 @@
+<!-- <div id="heading" class="heading">Book Details 3</div> -->
+<mat-card>
+
+  <mat-card-title>
+    <!-- Modify Book Details -->
+    <!-- <div id="heading"><b>{{heading}}</b></div> -->
+  </mat-card-title>
+
+  <mat-card-content>
+    <div id="heading" class="heading">Book Details Edit</div>
+  </mat-card-content>
+
+  <mat-card-content>
+    <button type="button" class="btn btn-primary" id="btnBack" (click)="eventBack($event.value)">Back to List</button>
+  </mat-card-content>
+
+  <mat-card-content>
+    <form>
+        <div class="form-group">
+          <label for="location">Title:</label>
+          <input [(ngModel)]="book.title" name="title" 
+            class="form-control col-sm-6" placeholder="Title" 
+            placement="right" ngbTooltip="Title">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Author:</label>
+          <input [(ngModel)]="book.author" name="author" 
+            class="form-control col-sm-4" placeholder="Author" 
+            placement="right" ngbTooltip="Author">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Year Published:</label>
+          <input [(ngModel)]="book.yearPublished" name="yearPublished" 
+            class="form-control col-sm-4" placeholder="Year Published" 
+            placement="right" ngbTooltip="Year Published">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Edition:</label>
+          <input [(ngModel)]="book.edition" name="edition" 
+            class="form-control col-sm-4" placeholder="Edition" 
+            placement="right" ngbTooltip="Edition">
+        </div>
+
+        <div class="form-group">
+          <label for="location">ISBN:</label>
+          <input [(ngModel)]="book.isbn" name="isbn" id="isbn" 
+            class="form-control col-sm-4" placeholder="ISBN" 
+            placement="right" ngbTooltip="ISBN">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input [(ngModel)]="book.location" name="location" 
+            class="form-control col-sm-4" placeholder="Location" 
+            placement="right" ngbTooltip="Location">
+        </div>
+
+        <div class="form-group">
+          <label for="selectGenre1">Genre:</label>
+          <br />
+          <div ngbDropdown class="d-inline-block form-control col-sm-3" 
+                placement="right">
+              <button
+                style="margin-left: -10px; margin-top: -5px;" 
+                class="btn btn-outline-primary"  id="selectGenre1" ngbDropdownToggle>
+                {{selectedGenre}}
+              </button>
+              <div name="selectGenre2" ngbDropdownMenu aria-labelledby="selectGenre1" 
+                ngDefaultControl [(ngModel)]="selectedGenre">
+                <button ngbDropdownItem *ngFor="let genre of genres" 
+                  [value]="genre" (click)="eventSelection($event)">
+                  {{genre}}
+                </button>
+              </div>
+            </div>
+        </div>
+                  
+        <div class="example-button-row">
+            <button type="button" class="btn btn-primary" id="btnUpdate" (click)="eventUpdateRecord($event.value)">Update</button>
+        </div>
+    </form>
+
+</mat-card-content>
+</mat-card>

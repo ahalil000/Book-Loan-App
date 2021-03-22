@@ -1,0 +1,58 @@
+<h2>Book Details</h2>
+<mat-card>
+    <mat-card-title>
+    </mat-card-title>
+    <mat-card-content>
+
+        <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Title</mat-label>
+              <input [(ngModel)]="book.title" name="title" matInput placeholder="Title">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Author</mat-label>
+              <input [(ngModel)]="book.author" name="author" matInput placeholder="Author">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Year Published</mat-label>
+              <input [(ngModel)]="book.yearPublished" name="yearpublished" matInput placeholder="YearPublished">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Edition</mat-label>
+              <input [(ngModel)]="book.edition" name="edition" matInput placeholder="Edition">
+            </mat-form-field>
+        </p>
+            <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>ISBN</mat-label>
+              <input [(ngModel)]="book.isbn" name="isbn" matInput placeholder="ISBN">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Location</mat-label>
+              <input [(ngModel)]="book.location" name="location" matInput placeholder="Location">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="example-full-width">
+              <mat-label>Genre</mat-label>
+              <mat-select [(ngModel)]="selectedGenre" (selectionChange)="eventSelection($event.value)">
+                <mat-option *ngFor="let genre of genres" [value]="genre">
+                    {{genre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </p>
+        
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="eventUpdateRecord($event.value)">Update</button>
+        </div>
+    </mat-card-content>
+</mat-card>

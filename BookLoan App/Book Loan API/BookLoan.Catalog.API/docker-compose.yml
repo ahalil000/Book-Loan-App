@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  bookloan.catalog.api:
+    image: ${DOCKER_REGISTRY-}bookloancatalogapi
+    env_file: 
+      - C:\development\environment\bookloan_env.env
+
+    build:
+      context: .
+      dockerfile: BookLoan.Catalog.API/Dockerfile

@@ -1,0 +1,65 @@
+<div id="heading" class="heading" style="margin-left:10px;">Book Loan</div>
+<mat-card>
+
+  <mat-card-title>
+    <!-- Modify Book Details -->
+    <!-- <div id="heading"><b>{{heading}}</b></div> -->
+  </mat-card-title>
+  
+  <mat-card-content>
+
+    <form>
+        <div class="form-group">
+          <label for="location">Title:</label>
+          <input readonly [(ngModel)]="book.title" name="title" 
+            class="form-control col-sm-6" placeholder="Title" 
+            placement="right" ngbTooltip="Title">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Author:</label>
+          <input readonly [(ngModel)]="book.author" name="author" 
+            class="form-control col-sm-4" placeholder="Author" 
+            placement="right" ngbTooltip="Author">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input readonly [(ngModel)]="book.location" name="location" 
+            class="form-control col-sm-4" placeholder="Location" 
+            placement="right" ngbTooltip="Location">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Loaned By:</label>
+          <input readonly [(ngModel)]="loan.loanedBy" name="loanedBy" 
+            class="form-control col-sm-4" placeholder="Loaned By" 
+            placement="right" ngbTooltip="Loaned By">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Date Loaned:</label>
+          <input readonly [(ngModel)]="loan.dateLoaned" name="dateLoaned" 
+            class="form-control col-sm-4" placeholder="Date Loaned" 
+            placement="right" ngbTooltip="Date Loaned">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Date Due:</label>
+          <input readonly [(ngModel)]="loan.dateDue" name="dateDue" 
+            class="form-control col-sm-4" placeholder="Date Due" 
+            placement="right" ngbTooltip="Date Due">
+        </div>
+                  
+        <div class="flex-container">
+          <div>
+            <button type="button" class="btn btn-primary" id="btnBorrow" (click)="eventProcessLoan($event.value)">Borrow</button>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary" id="btnCancel" (click)="eventCancelLoan($event.value)">Cancel</button>
+          </div>
+        </div>
+    </form>
+
+</mat-card-content>
+</mat-card>

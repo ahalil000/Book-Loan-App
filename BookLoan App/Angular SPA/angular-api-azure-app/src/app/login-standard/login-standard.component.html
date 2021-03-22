@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-content>
+        <div id="heading"><b>{{heading}}</b></div>
+
+        <form [formGroup]="form" (ngSubmit)="login(form.controls.email.value, form.controls.password.value)">
+            <mat-form-field>
+                <input matInput id="email" type="email" placeholder="Email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput id="pwd" type="password" placeholder="Password" formControlName="password">
+            </mat-form-field>
+            <button mat-raised-button id="btnLogin" color="primary" [disabled]="!form.valid">Login</button>
+        </form>
+    </mat-card-content>
+</mat-card>

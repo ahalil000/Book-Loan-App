@@ -1,0 +1,100 @@
+<!-- <div class="heading">Book View</div> -->
+<mat-card>
+
+  <mat-card-title>
+    <!-- Modify Book Details -->
+    <!-- <div id="heading"><b>{{heading}}</b></div> -->
+  </mat-card-title>
+
+  <mat-card-content>
+    <div id="heading" class="heading"><b>Book View</b></div>
+  </mat-card-content>
+
+  <mat-card-content>
+    <button type="button" class="btn btn-primary" id="btnBack" (click)="eventBack($event.value)">Back to Search</button>
+  </mat-card-content>
+
+  <mat-card-content>
+    <form>
+        <div class="form-group">
+          <label>Title:</label>
+          <input readonly [(ngModel)]="book.title" name="title" 
+            class="form-control col-sm-6 input-sm" placeholder="Title" 
+            placement="right" ngbTooltip="Title">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Author:</label>
+          <input readonly [(ngModel)]="book.author" name="author" 
+            class="form-control col-sm-4" placeholder="Author" 
+            placement="right" ngbTooltip="Author">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Year Published:</label>
+          <input readonly [(ngModel)]="book.yearPublished" name="yearPublished" 
+            class="form-control col-sm-4" placeholder="Year Published" 
+            placement="right" ngbTooltip="Year Published">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Edition:</label>
+          <input readonly [(ngModel)]="book.edition" name="edition" 
+            class="form-control col-sm-4" placeholder="Edition" 
+            placement="right" ngbTooltip="Edition">
+        </div>
+
+        <div class="form-group">
+          <label for="location">ISBN:</label>
+          <input readonly [(ngModel)]="book.isbn" name="isbn" id="isbn" 
+            class="form-control col-sm-4" placeholder="ISBN" 
+            placement="right" ngbTooltip="ISBN">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input readonly [(ngModel)]="book.location" name="location" 
+            class="form-control col-sm-4" placeholder="Location" 
+            placement="right" ngbTooltip="Location">
+        </div>
+
+        <div class="form-group">
+          <label for="genre">Genre:</label>
+          <input readonly [(ngModel)]="book.genre" name="genre" 
+            class="form-control col-sm-4" placeholder="Genre" 
+            placement="right" ngbTooltip="Genre">
+        </div>
+
+        <div *ngIf="loanstatus === 'Available'">  
+          <div class="form-group">
+            <label for="loanstatus">Loan Status:</label>
+            <input readonly [(ngModel)]="loanstatus" name="loanstatus" 
+              class="form-control col-sm-4" placeholder="Loan Status" 
+              placement="right" ngbTooltip="Loan Status">
+          </div>
+        </div>
+
+        <div *ngIf="loanstatus !== 'Available'">  
+          <div class="form-group">
+            <label for="loanstatus">Loan Status:</label>
+            <input readonly [(ngModel)]="loanstatus" name="loanstatus" style="background-color: darksalmon;" 
+              class="form-control col-sm-4" placeholder="On Loan" 
+              placement="right" ngbTooltip="Loan Status">
+          </div>
+        </div>
+
+        <div *ngIf="loanstatus === 'Available'">
+          <div class="form-group">
+              <button type="button" class="btn btn-primary" id="btnBorrow" (click)="eventBorrowRecord($event.value)">Borrow</button>
+          </div>
+        </div>
+
+        <div *ngIf="loanstatus !== 'Available'">
+          <div class="form-group">
+              <button type="button" class="btn btn-primary" id="btnReturn" (click)="eventReturnRecord($event.value)">Return</button>
+          </div>
+        </div>
+    </form>
+
+</mat-card-content>
+</mat-card>

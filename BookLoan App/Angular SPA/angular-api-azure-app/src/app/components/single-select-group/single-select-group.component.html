@@ -1,0 +1,9 @@
+<mat-chip-list #chiplist aria-label="Single Selection">
+    <mat-chip *ngIf="selectedItem" name="selectionItem" (click)="onSelect(item)">  
+      {{selectedItem}}
+    </mat-chip>
+    <mat-chip name="selectionItems" *ngFor="let item of selectableItems"
+      (click)="onSelect(item)">  
+      {{item}}
+    </mat-chip>
+</mat-chip-list>

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  bookloan.identity.api:
+    image: ${DOCKER_REGISTRY-}bookloanidentityapi
+    build:
+      context: .
+      dockerfile: BookLoan.Identity.API/Dockerfile

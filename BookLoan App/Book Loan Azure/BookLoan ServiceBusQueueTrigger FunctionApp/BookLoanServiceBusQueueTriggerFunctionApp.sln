@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLoanServiceBusQueueTriggerFunctionApp", "BookLoanServiceBusQueueTriggerFunctionApp\BookLoanServiceBusQueueTriggerFunctionApp.csproj", "{127B7225-1B55-4ED1-B014-77250DF91CF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{127B7225-1B55-4ED1-B014-77250DF91CF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127B7225-1B55-4ED1-B014-77250DF91CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127B7225-1B55-4ED1-B014-77250DF91CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127B7225-1B55-4ED1-B014-77250DF91CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B35F88C-A8B2-4E5B-8C9E-10A96631A0EC}
+	EndGlobalSection
+EndGlobal

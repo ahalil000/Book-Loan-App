@@ -1,0 +1,103 @@
+<mat-card>
+
+  <mat-card-title>
+  </mat-card-title>
+
+  <mat-card-content>
+    <div id="heading" class="heading">Edit User Account Details</div>
+  </mat-card-content>
+
+  <mat-card-content>
+    <button type="button" class="btn btn-primary" id="btnBack" (click)="eventBack($event.value)">Back to List</button>
+  </mat-card-content>
+
+  <mat-card-content>
+    <form>
+
+        <div class="form-group">
+          <label for="firstname">First Name:</label>
+          <input [(ngModel)]="useraccount.firstName" name="firstname" 
+            class="form-control col-sm-6" placeholder="Firstname" 
+            placement="right" ngbTooltip="Enter first name">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Last Name:</label>
+          <input [(ngModel)]="useraccount.lastName" name="lastname" 
+            class="form-control col-sm-6" placeholder="Lastname" 
+            placement="right" ngbTooltip="Enter last name">
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth:</label>
+          <br />
+          <input matInput [matDatepicker]="picker" name="dob" 
+            [(ngModel)]="useraccount.dob"
+            (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker [startAt]="startDate"></mat-datepicker>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Login Name:</label>
+          <input [(ngModel)]="useraccount.userName" name="username" 
+            class="form-control col-sm-6" placeholder="Username" 
+            placement="right" ngbTooltip="Enter login (must be alphanumeric)">
+        </div>
+
+        <div class="form-group">
+          <label for="location">Email:</label>
+          <input [(ngModel)]="useraccount.email" name="email" 
+            class="form-control col-sm-6" placeholder="Email" 
+            placement="right" ngbTooltip="Enter email address">
+        </div>
+
+        <div class="form-group">
+          <label for="selectGenre1">Access Roles:</label>
+          <br />
+
+          <app-checkbox-group 
+            [availableItems]="availableRoles$ | async"
+            [selectedItems]="selectedRoles$ | async"
+            (userSelectedItems)="updateChecked($event)" 
+            (unSelectedUserItems)="updateUnChecked($event)">
+          </app-checkbox-group>
+          
+          <!-- (ngModelChange)="updateChecked(role, $event)"> -->
+
+          <!-- <div style="display: flex;">                    
+            <div name="userRoles" style="flex: 0 20%;" *ngFor="let role of userRoles">
+                <mat-checkbox [(ngModel)]="role.isSelected" 
+                              [color]="blue" 
+                              [ngModelOptions]="{standalone: true}">
+                              {{role.role}}
+                </mat-checkbox>
+            </div>
+          </div> -->
+
+
+          <!-- <div ngbDropdown class="d-inline-block form-control col-sm-3" 
+                placement="right">
+              <button
+                style="margin-left: -10px; margin-top: -5px;" 
+                class="btn btn-outline-primary"  id="selectRole1" ngbDropdownToggle>
+                {{selectedRole}}
+              </button>
+              <div name="selectRole2" ngbDropdownMenu aria-labelledby="selectRole1" 
+                ngDefaultControl [(ngModel)]="selectedRole">
+                <button ngbDropdownItem *ngFor="let role of roles" 
+                  [value]="role" (click)="eventSelection($event)">
+                  {{role}}
+                </button>
+              </div>
+          </div> -->
+
+        </div>
+                  
+        <div class="example-button-row">
+            <button type="button" class="btn btn-primary" id="btnCreate" (click)="eventUpdateRecord($event.value)">Update</button>
+        </div>
+    </form>
+
+</mat-card-content>
+</mat-card>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLoanIntegrationTest", "BookLoanIntegrationTest\BookLoanIntegrationTest.csproj", "{DE921089-E82C-447F-A0EE-60A0AEF63D62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookLoan.Catalog.API", "..\BookLoan API\VS 2019\BookLoan.Catalog.API\BookLoan.Catalog.API\BookLoan.Catalog.API.csproj", "{E255E47E-14F6-428D-93FA-952A82BC7090}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE921089-E82C-447F-A0EE-60A0AEF63D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE921089-E82C-447F-A0EE-60A0AEF63D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE921089-E82C-447F-A0EE-60A0AEF63D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE921089-E82C-447F-A0EE-60A0AEF63D62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E255E47E-14F6-428D-93FA-952A82BC7090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E255E47E-14F6-428D-93FA-952A82BC7090}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E255E47E-14F6-428D-93FA-952A82BC7090}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E255E47E-14F6-428D-93FA-952A82BC7090}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7CE14D4-9028-4AD3-8893-4AAAD9323FE8}
+	EndGlobalSection
+EndGlobal

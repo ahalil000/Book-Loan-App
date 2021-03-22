@@ -1,0 +1,56 @@
+@media all and (min-width: 360px) {
+    .wrapper
+    {
+        display: grid;
+        grid-row-gap: 2em;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "report1"
+        "report2"
+        "report3";
+    }
+}
+
+@media all and (min-width: 576px) {
+    .wrapper
+    {
+        display: grid;
+        grid-row-gap: 2em;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "report1 report2"
+        "report3 report3"; 
+    }
+}
+
+
+.report1-area {
+    grid-area: report1;
+}    
+
+.report2-area {
+    grid-area: report2;
+}    
+
+.report3-area {
+    grid-area: report3;
+}    
+
+
+.footer-area {
+    grid-area: footer;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+} 
+
+.banner {
+    max-width: 100%;
+    text-align: center;
+    color: white;
+    overflow: auto;
+}

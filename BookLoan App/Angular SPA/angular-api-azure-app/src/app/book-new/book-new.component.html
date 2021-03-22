@@ -1,0 +1,151 @@
+<mat-card>
+
+    <mat-card-title>
+    </mat-card-title>
+  
+    <mat-card-content>
+      <div id="heading" class="heading">Create New Book</div>
+    </mat-card-content>
+  
+    <mat-card-content>
+      <button type="button" class="btn btn-primary" id="btnBack" (click)="eventBack($event.value)">Back to List</button>
+    </mat-card-content>
+  
+    <mat-card-content>
+        <form [formGroup]="bookForm">
+          <div class="form-group">
+            <label for="location">Title:</label>
+            <input id="title" name="title"    
+              class="form-control col-sm-6" placeholder="Title" 
+              placement="right" ngbTooltip="Title" formControlName="title">
+          </div>
+  
+          <div *ngIf="title.invalid && (title.dirty || title.touched || submitted)"
+                class="alert alert-danger">
+            <div *ngIf="title.errors.required">
+                Title is required.
+            </div>
+            <div *ngIf="title.errors.minlength">
+                Title length must be at least 2 characters.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Author:</label>
+            <input name="author" 
+              class="form-control col-sm-4" placeholder="Author" 
+              placement="right" ngbTooltip="Author" formControlName="author">
+          </div>
+
+          <div *ngIf="bookForm.controls.author.invalid && (bookForm.controls.author.dirty || bookForm.controls.author.touched || submitted)"
+                class="alert alert-danger">
+            <div *ngIf="bookForm.controls.author.errors.required">
+                Author is required.
+            </div>
+            <div *ngIf="bookForm.controls.author.errors.minlength">
+                Author length must be at least 2 characters.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">Year Published:</label>
+            <input name="yearPublished" 
+              class="form-control col-sm-4" placeholder="Year Published" 
+              placement="right" ngbTooltip="Year Published" formControlName="yearPublished">
+          </div>
+  
+          <div *ngIf="yearPublished.invalid && (yearPublished.dirty || yearPublished.touched || submitted)"
+                class="alert alert-danger">
+            <div *ngIf="yearPublished.errors.required">
+                Year Published is required.
+            </div>
+            <div *ngIf="yearPublished.errors.invalidPublishedYear">
+                Year Published must be at least 1000 and not greater than the current year.
+            </div>
+        </div>
+          
+          <div class="form-group">
+            <label for="location">Edition:</label>
+            <input name="edition" 
+              class="form-control col-sm-4" placeholder="Edition" 
+              placement="right" ngbTooltip="Edition" formControlName="edition">
+          </div>
+
+          <div *ngIf="bookForm.controls.edition.invalid && (bookForm.controls.edition.dirty || bookForm.controls.edition.touched || submitted)"
+                class="alert alert-danger">
+            <div *ngIf="bookForm.controls.edition.errors.required">
+                Edition is required.
+            </div>
+            <div *ngIf="bookForm.controls.edition.errors.minlength">
+                Edition length must be at least 1 character.
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">ISBN:</label>
+            <input name="isbn" id="isbn" 
+              class="form-control col-sm-4" placeholder="ISBN" 
+              placement="right" ngbTooltip="ISBN" formControlName="isbn">
+          </div>
+
+          <div *ngIf="bookForm.controls.isbn.invalid && (bookForm.controls.isbn.dirty || bookForm.controls.isbn.touched || submitted)"
+                class="alert alert-danger">
+            <div *ngIf="bookForm.controls.isbn.errors.required">
+                ISBN is required.
+            </div>
+            <div *ngIf="bookForm.controls.isbn.errors.minlength">
+                ISBN length must be at least 1 character.
+            </div>
+          </div>          
+
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <input name="location" 
+              class="form-control col-sm-4" placeholder="Location" 
+              placement="right" ngbTooltip="Location" formControlName="location">
+          </div>
+
+          <div *ngIf="bookForm.controls.location.invalid && (bookForm.controls.location.dirty || bookForm.controls.location.touched || submitted)"
+            class="alert alert-danger">
+            <div *ngIf="bookForm.controls.location.errors.required">
+                Location is required.
+            </div>
+            <div *ngIf="bookForm.controls.location.errors.minlength">
+                Location length must be at least 2 character.
+            </div>
+          </div>          
+
+          <div class="form-group">
+            <label for="selectGenre1">Genre:</label>
+            <br />
+            <app-single-select-group 
+              [availableItems]="genres" 
+              [selectedItem]="selectedGenre" 
+              (selectionChange)="eventSelection($event)">
+            </app-single-select-group>
+          </div>
+
+            <!-- <div ngbDropdown class="d-inline-block form-control col-sm-3" 
+                  placement="right">
+                <button
+                  style="margin-left: -10px; margin-top: -5px;" 
+                  class="btn btn-outline-primary"  id="selectGenre1" ngbDropdownToggle>
+                  {{selectedGenre}}
+                </button>
+                <div name="selectGenre2" ngbDropdownMenu aria-labelledby="selectGenre1" 
+                  ngDefaultControl formControlName="genre">
+                  <button ngbDropdownItem *ngFor="let genre of genres" 
+                    [value]="genre" (click)="eventSelection($event)">
+                    {{genre}}
+                  </button>
+                </div>
+              </div> -->
+
+          <div class="example-button-row">
+              <button type="button" class="btn btn-primary" id="btnCreate" (click)="eventCreateRecord($event.value)">Create</button>
+          </div>
+      </form>
+  
+  </mat-card-content>
+  </mat-card>
+  

@@ -1,0 +1,97 @@
+<!-- <div class="heading">Book View</div> -->
+
+
+<div id="heading" class="heading"><b>Dashboard</b></div>
+
+<div class="flex-container">
+
+  <div class="flex-item-left">
+    <mat-card style="border-style: outset;">
+      <mat-card-title>
+        <div id="heading" class="heading"><b>Top 5 Books</b></div>
+      </mat-card-title>
+
+      <mat-card-content >
+          <div *ngIf="hasLoadedBooks$ | async; else loading">
+            <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px; background-color: cadetblue;">
+                <div class="grid-header" style="flex: 0 25%; border-style: solid; border-width: 1px;"><b>RANKING</b></div>
+                <div class="grid-header" style="flex: 0 55%; border-style: solid; border-width: 1px;"><b>TITLE</b></div>
+                <div class="grid-header" style="flex: 0 20%; border-style: solid; border-width: 1px;"><b>#LOANS</b></div>
+            </div>
+
+            <mat-list *ngFor="let book of topBooks">
+                <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px;">
+                    <div class="grid-row" style="flex: 0 25%; border-style: solid; border-width: 1px;">{{book.ranking}}</div>
+                    <div class="grid-row" style="flex: 0 55%; border-style: solid; border-width: 1px;">{{book.title}}</div>
+                    <div class="grid-row" style="flex: 0 20%; border-style: solid; border-width: 1px;">{{book.count}}</div>    
+                </div> 
+            </mat-list>
+          </div>
+          <br />
+          <ng-template #loading>
+            <div>
+              <br />
+              <mat-progress-spinner
+                  class="example-margin"
+                  [color]="primary"
+                  [mode]="mode"
+                  [value]="value">
+              </mat-progress-spinner>
+              loading books .. please wait
+            </div>
+          </ng-template>
+        </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="flex-item-right">
+    <mat-card style="border-style: outset;">
+      <mat-card-title>
+        <div id="heading" class="heading"><b>Most Outstanding Loans</b></div>
+      </mat-card-title>
+
+      <mat-card-content >
+        <div *ngIf="hasLoadedMembers$ | async; else loading">
+          <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px; background-color: cadetblue;">
+              <div class="grid-header" style="flex: 0 25%; border-style: solid; border-width: 1px;"><b>RANKING</b></div>
+              <div class="grid-header" style="flex: 0 55%; border-style: solid; border-width: 1px;"><b>MEMBER</b></div>
+              <div class="grid-header" style="flex: 0 20%; border-style: solid; border-width: 1px;"><b>#LOANS</b></div>
+          </div>
+
+          <mat-list *ngFor="let member of topMembers">
+              <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px;">
+                  <div class="grid-row" style="flex: 0 25%; border-style: solid; border-width: 1px;">{{member.ranking}}</div>
+                  <div class="grid-row" style="flex: 0 55%; border-style: solid; border-width: 1px;">{{member.userName}}</div>
+                  <div class="grid-row" style="flex: 0 20%; border-style: solid; border-width: 1px;">{{member.count}}</div>    
+              </div> 
+          </mat-list>
+        </div>
+        <br />
+        <ng-template #loading>
+          <div>
+            <br />
+            <mat-progress-spinner
+                class="example-margin"
+                [color]="primary"
+                [mode]="mode"
+                [value]="value">
+            </mat-progress-spinner>
+            loading books .. please wait
+          </div>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="flex-container">
+
+    <div class="flex-item-left">
+      <mat-card style="border-style: outset;">
+        <mat-card-title>
+          <div id="heading" class="heading"><b>Recent Overdue Loans</b></div>
+        </mat-card-title>
+      </mat-card>
+    </div>
+    
+</div>

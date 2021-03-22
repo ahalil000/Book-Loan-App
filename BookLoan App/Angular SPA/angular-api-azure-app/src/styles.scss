@@ -1,0 +1,124 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* custom styles below */
+heading {
+    font-size: x-large;
+    font-weight: bolder;
+    text-decoration: underline;
+    margin-left:10px;
+    background-color: crimson;
+}
+
+.image-header
+{
+    display: flex;
+    padding-left: 14px;
+}
+
+/* custom styles below */
+div.heading {
+    /* margin-left:20px; */
+    background-color: cadetblue;
+}
+
+div.container {
+    max-width: inherit;
+    overflow: scroll;
+}
+
+.form-group
+{
+    margin: 4px;
+}
+
+label {
+    font-size: small;
+    margin: 4px;
+}
+
+input.form-control {
+    font-size: 0.8rem;
+};
+
+.mat-card {
+    padding: 2px;
+    background-color: azure;
+}
+
+.mat-list-base {
+    padding-top: 2px;
+}
+
+.btn
+{
+    font-size: 0.9rem;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;    
+    margin: 4px;
+}
+
+grid-row
+{
+    border-style: solid; 
+    border-width: thin;
+    padding: 2px;
+}
+
+div.grid-row
+{
+    border-color: azure; 
+}
+
+grid-header
+{
+    border-style: solid; 
+    border-width: thin;
+    padding: 2px;
+}
+
+div.grid-header
+{
+    border-color: cadetblue;
+}
+
+.blue-snackbar {
+    background: cadetblue;
+    white-space: pre-wrap;
+}
+
+/* flex container for horizontal controls */
+.flex-container
+{
+    flex-wrap: wrap;
+    display: flex;
+}
+
+div.flex-container 
+{
+    padding: 1px;
+}
+
+
+.flex-item-left {
+    background-color: azure;
+    padding: 2px;
+    flex: 50%;
+}
+  
+.flex-item-right {
+    background-color: azure;
+    padding: 2px;
+    flex: 50%;
+}
+  
+@media (max-width: 800px) {
+    .flex-item-right, .flex-item-left {
+      flex: 100%;
+    }
+}

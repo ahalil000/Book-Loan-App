@@ -1,0 +1,37 @@
+<!-- <h2>Book Search</h2> -->
+<mat-card>
+    <mat-card-title>
+    </mat-card-title>
+
+    <mat-card-content>
+        <div id="heading" class="heading">Book Search</div>
+    </mat-card-content>
+    
+    <mat-card-content>
+        <mat-form-field class="example-full-width">
+            <mat-label>Search Text</mat-label>
+            <input class="form-control" [(ngModel)]="userQuery" 
+            type="text" name="userQuery" id="userQuerys"
+            (ngModelChange)="this.searchQueryUpdate.next($event)" matInput>              
+        </mat-form-field>
+
+        <hr />
+
+        <div *ngIf="hasSearchResults$ | async; else noRecords">
+            <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px; background-color: cadetblue;">
+                <div style="flex: 0 40%;"><u><b>TITLE</b></u></div>
+                <div style="flex: 0 40%;"><u><b>AUTHOR</b></u></div>
+                <div style="flex: 0 20%;"><u><b>&nbsp;</b></u></div>
+            </div> 
+
+            <div style="display: flex; flex-wrap: wrap; border-style: solid; border-width: 1px;" *ngFor="let book of searchResults">
+                <div class="grid-row" style="flex: 0 40%;">{{book.title}}</div>
+                <div class="grid-row" style="flex: 0 40%;">{{book.author}}</div>
+                <div class="grid-row" style="flex: 0 20%;" class="clickLink" (click)="selectBookById(book.id)"><u>VIEW</u></div>
+            </div> 
+        </div>
+        <ng-template #noRecords>
+            Awaiting search results ...
+        </ng-template>
+    </mat-card-content>
+</mat-card>

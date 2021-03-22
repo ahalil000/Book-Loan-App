@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.12" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.12" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.12" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.12" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.12" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\BookLoan API\VS 2019\BookLoan.Catalog.API\BookLoan.Catalog.API\BookLoan.Catalog.API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="configuration.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

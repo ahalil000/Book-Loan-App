@@ -1,0 +1,6 @@
+<mat-paginator  #paginator
+                [length]="totalItems"
+                [pageSize]="itemsPerPage"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                (click)="onSelect($event)">
+</mat-paginator>
